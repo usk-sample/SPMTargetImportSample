@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import CoreModule
 
-class Module1 {
+public class Module1 {
+    
+    let core = Core()
+    
+    public init() {
+        
+    }
     
 }

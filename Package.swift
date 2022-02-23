@@ -10,7 +10,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "SPMTargetImportSample",
-            targets: ["SPMTargetImportSample", "Module1", "Module2", "Core"]),
+            targets: ["SPMTargetImportSample", "Module1", "Module2", "CoreModule"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,10 +21,10 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "SPMTargetImportSample",
-            dependencies: []),
-        .target(name: "Module1", dependencies: []),
-        .target(name: "Module2", dependencies: []),
-        .target(name: "Core", dependencies: []),
+            dependencies: ["Module1", "Module2"]),
+        .target(name: "Module1", dependencies: ["CoreModule"]),
+        .target(name: "Module2", dependencies: ["CoreModule"]),
+        .target(name: "CoreModule", dependencies: []),
         .testTarget(
             name: "SPMTargetImportSampleTests",
             dependencies: ["SPMTargetImportSample", "Module1", "Module2"]),

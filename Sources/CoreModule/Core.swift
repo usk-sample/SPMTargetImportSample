@@ -7,6 +7,10 @@
 
 import Foundation
 
-class Core {
+public class Core {
+    
+    public init() {
+        
+    }
     
 }
