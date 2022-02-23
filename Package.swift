@@ -5,11 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "SPMTargetImportSample",
+    platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "SPMTargetImportSample",
-            targets: ["SPMTargetImportSample"]),
+            targets: ["SPMTargetImportSample", "Module1", "Module2", "Core"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,8 +22,11 @@ let package = Package(
         .target(
             name: "SPMTargetImportSample",
             dependencies: []),
+        .target(name: "Module1", dependencies: []),
+        .target(name: "Module2", dependencies: []),
+        .target(name: "Core", dependencies: []),
         .testTarget(
             name: "SPMTargetImportSampleTests",
-            dependencies: ["SPMTargetImportSample"]),
+            dependencies: ["SPMTargetImportSample", "Module1", "Module2"]),
     ]
 )
